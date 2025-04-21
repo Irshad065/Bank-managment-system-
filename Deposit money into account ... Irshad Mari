@@ -1,0 +1,22 @@
+void deposit() {
+    int accountNumber;
+    float amount;
+    cout << "\nEnter account number for deposit: ";
+    cin >> accountNumber;
+    cout << "Enter deposit amount: ";
+    cin >> amount;
+
+    bool found = false;
+    for(int i = 0; i < accountCount; i++) {
+        if(accounts[i].accountNumber == accountNumber) {
+            accounts[i].balance += amount;
+            cout << "Deposited " << amount << " to account number " << accountNumber << endl;
+            found = true;
+            saveAccountData();
+            break;
+        }
+    }
+    if(!found) {
+        cout << "Account not found!" << endl;
+    }
+}
